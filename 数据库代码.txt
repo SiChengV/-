@@ -1,0 +1,60 @@
+create table movie_info(
+	ID int auto_increment,
+	name varchar(50) not null,
+	time varchar(10) not null,
+	director varchar(20) not null,
+	types varchar(20) not null,
+	releaseDate date null,
+	score float null,
+	sumComment int null,
+	primary key(ID),
+	unique key uni_Mname (name)
+	
+)engine=InnoDB default charset=utf8;
+
+create table comment_info(
+	ID int auto_increment,
+	name varchar(20) not null,
+	userName varchar(20) not null,
+	userScore varchar(20) not null,
+	time date,
+	comment varchar(300) not null,
+	primary key(ID),
+	unique key uni_comment (comment)
+)engine=InnoDB default charset=utf8;
+
+create table movie_score(
+	ID int auto_increment,
+	name varchar(20) not null,
+	fiveStarRate float null,
+	fourStarRate float null,
+	threeStarRate float null,
+	twoStarRate float null,
+	oneStarRate float null,
+	primary key(ID),
+	unique key uni_name (name)
+)engine=InnoDB default charset=utf8;
+
+create table movie_play(
+	ID int auto_increment,
+	name varchar(20) not null,
+	movieSite varchar(10) not null,
+	movieUrl varchar(300) not null,
+	primary key(ID),
+	unique key uni_site (movieSite)
+)engine=InnoDB default charset=utf8;
+
+create table movie_awards(
+	ID int auto_increment,
+	name varchar(20) not null,
+	awardName varchar(20) not null,
+	awardClass varchar(20) not null,
+	primary key(ID),
+	unique key uni_award (awardName)
+)engine=InnoDB default charset=utf8;
+
+
+删除表 DROP table ***;
+删除表时卡住 show full processlist; 调出所有数据库进程 kill (id) 杀死进程 即可
+
+
